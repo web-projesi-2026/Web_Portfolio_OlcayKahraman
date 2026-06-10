@@ -191,8 +191,4 @@ Kırşehir Ahi Evran Üniversitesi — Bilgisayar Programcılığı
 - 💼 LinkedIn: [olcay-kahraman2005](https://linkedin.com/in/olcay-kahraman2005)
 - 📧 E-posta: olcaykahraman2405@gmail.com
 
----
 
-## 📄 Lisans
-
-Bu proje [MIT Lisansı](LICENSE) kapsamında lisanslanmıştır.
