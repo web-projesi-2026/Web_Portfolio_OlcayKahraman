@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="tr" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hakkımda | Olcay KAHRAMAN</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="student-icon.png">
+</head>
+<body>
+
+<header>
+    <div class="header-left">
+        <div class="profile-frame" id="profile-trigger">
+            <img src="olcaykahramanfotograf.jpg" alt="Olcay KAHRAMAN">
+        </div>
+        <h2 class="logo-text">Olcay KAHRAMAN</h2>
+    </div>
+    <div class="hamburger-menu" id="hamburger-btn"><i class="fas fa-bars"></i></div>
+    <nav id="nav-menu">
+        <ul>
+            <li><a href="index.html">Ana Sayfa</a></li>
+            <li><a href="projects.html">Projelerim</a></li>
+            <li><a href="about.html" class="active">Hakkımda</a></li>
+            <li><a href="resume.html">Özgeçmişim</a></li>
+            <li><a href="contact.html">İletişim</a></li>
+            <li><a href="certificates.html">Sertifikalarım</a></li>
+        </ul>
+    </nav>
+    <div class="theme-toggle">
+        <input type="checkbox" id="theme-checkbox" class="checkbox">
+        <label for="theme-checkbox" class="label">
+            <i class="fas fa-moon"></i><i class="fas fa-sun"></i>
+            <div class="ball"></div>
+        </label>
+    </div>
+</header>
+
+<main class="about-wrapper">
+    <section class="about-hero">
+        <div class="about-img-container">
+            <div class="img-border">
+                <img src="olcaykahramanfotograf.jpg" alt="Olcay KAHRAMAN">
+            </div>
+        </div>
+        <div class="about-intro">
+            <h1>Ben Kimim? <span class="highlight">Geleceği Kodluyorum.</span></h1>
+            <p>Merhaba! Ben <strong>Olcay KAHRAMAN</strong>. 2005 yılında Kırşehir'de doğdum. Şu an Kırşehir Ahi Evran Üniversitesi'nde Bilgisayar Programcılığı 2. sınıf öğrencisiyim.</p>
+            <p>Backend tarafında <strong>C# ve ASP.NET Core</strong>, Frontend tarafında <strong>CSS ve JavaScript</strong>, mobil dünyada ise <strong>Flutter</strong> üzerine çalışmalar yürütüyorum.</p>
+            <p>Yazılımı sadece kod yazmak değil, bir çözüm sanatı olarak görüyorum. Disiplinli çalışma azmimle teknoloji dünyasında kalıcı izler bırakmayı hedefliyorum.</p>
+            <a href="contact.html" class="cta-btn primary" style="display:inline-flex;align-items:center;gap:8px;margin-top:10px;">
+                <i class="fas fa-paper-plane"></i> İletişime Geç
+            </a>
+        </div>
+    </section>
+
+    <section class="skills-overview">
+        <h2 class="sub-title">Nelerle <span class="highlight">Uğraşıyorum?</span></h2>
+        <div class="skills-cards">
+            <div class="skill-box">
+                <i class="fas fa-layer-group"></i>
+                <h3>Backend</h3>
+                <p>ASP.NET Core, SQL Server ve Java Swing projeleri geliştiriyorum.</p>
+            </div>
+            <div class="skill-box">
+                <i class="fas fa-laptop-code"></i>
+                <h3>Frontend</h3>
+                <p>Modern HTML5, CSS3 ve JavaScript ile dinamik arayüzler tasarlıyorum.</p>
+            </div>
+            <div class="skill-box">
+                <i class="fas fa-mobile-screen-button"></i>
+                <h3>Mobile</h3>
+                <p>Flutter ve Dart ile cross-platform mobil uygulamalar geliştiriyorum.</p>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="social-footer">
+    <ul class="wrapper">
+        <li class="icon twitter"><a href="https://twitter.com/OlcayKahraman40" target="_blank" rel="noopener"><span class="tooltip">X (Twitter)</span><i class="fa-brands fa-x-twitter"></i></a></li>
+        <li class="icon instagram"><a href="https://www.instagram.com/olcykhrmn" target="_blank" rel="noopener"><span class="tooltip">Instagram</span><i class="fab fa-instagram"></i></a></li>
+        <li class="icon github"><a href="https://github.com/OlcayKAHRAMAN2005" target="_blank" rel="noopener"><span class="tooltip">GitHub</span><i class="fab fa-github"></i></a></li>
+        <li class="icon linkedin"><a href="https://www.linkedin.com/in/olcay-kahraman2005" target="_blank" rel="noopener"><span class="tooltip">LinkedIn</span><i class="fab fa-linkedin"></i></a></li>
+    </ul>
+</footer>
+
+<div id="photo-overlay" class="photo-overlay">
+    <img src="" id="expanded-photo" alt="Profil Fotoğrafı">
+</div>
+
+<button id="scrollToTopBtn" title="Yukarı Çık"><i class="fas fa-arrow-up"></i></button>
+
+<script src="script.js"></script>
+</body>
+</html>

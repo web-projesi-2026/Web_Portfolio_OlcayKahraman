@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="tr" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sertifikalarım | Olcay KAHRAMAN</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="student-icon.png">
+</head>
+<body>
+
+<header>
+    <div class="header-left">
+        <div class="profile-frame" id="profile-trigger">
+            <img src="olcaykahramanfotograf.jpg" alt="Olcay KAHRAMAN">
+        </div>
+        <h2 class="logo-text">Olcay KAHRAMAN</h2>
+    </div>
+    <div class="hamburger-menu" id="hamburger-btn"><i class="fas fa-bars"></i></div>
+    <nav id="nav-menu">
+        <ul>
+            <li><a href="index.html">Ana Sayfa</a></li>
+            <li><a href="projects.html">Projelerim</a></li>
+            <li><a href="about.html">Hakkımda</a></li>
+            <li><a href="resume.html">Özgeçmişim</a></li>
+            <li><a href="contact.html">İletişim</a></li>
+            <li><a href="certificates.html" class="active">Sertifikalarım</a></li>
+        </ul>
+    </nav>
+    <div class="theme-toggle">
+        <input type="checkbox" id="theme-checkbox" class="checkbox">
+        <label for="theme-checkbox" class="label">
+            <i class="fas fa-moon"></i><i class="fas fa-sun"></i>
+            <div class="ball"></div>
+        </label>
+    </div>
+</header>
+
+<main class="cert-wrapper">
+    <h1 class="page-title">Sertifika <span class="highlight">Arşivim</span></h1>
+
+    <!-- TOOLBAR: Arama + Filtre -->
+    <div class="cert-toolbar">
+        <div class="search-box">
+            <i class="fas fa-search"></i>
+            <input type="text" id="search-input" placeholder="Sertifika veya kurum ara...">
+            <button class="clear-search" id="clear-search" style="display:none" title="Temizle">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="filter-row" id="filter-chips">
+            <button class="chip active" data-filter="all">Tümü</button>
+            <button class="chip" data-filter="web">Web</button>
+            <button class="chip" data-filter="backend">Backend</button>
+            <button class="chip" data-filter="mobile">Mobile</button>
+            <button class="chip" data-filter="database">Veritabanı</button>
+            <button class="chip" data-filter="tools">Araçlar</button>
+            <button class="chip" data-filter="other">Diğer</button>
+        </div>
+    </div>
+
+    <div class="results-info" id="results-info"></div>
+
+    <!-- Sertifika Ekle Butonu -->
+    <button class="add-cert-btn" onclick="openModal()">
+        <i class="fas fa-plus"></i> Sertifika Ekle
+    </button>
+
+    <!-- Kart Grid -->
+    <div class="cert-grid" id="cert-grid"></div>
+</main>
+
+<!-- SERTIFIKA EKLE MODALI -->
+<div class="modal-overlay" id="modal-overlay" onclick="handleOverlayClick(event)">
+    <div class="modal">
+        <h3><i class="fas fa-certificate" style="color:var(--accent-color);margin-right:10px"></i>Yeni Sertifika Ekle</h3>
+
+        <div class="form-group">
+            <label for="f-title">Sertifika Adı <span style="color:var(--danger)">*</span></label>
+            <input type="text" id="f-title" placeholder="örn. ASP.NET Core MVC">
+        </div>
+        <div class="form-group">
+            <label for="f-issuer">Veren Kurum <span style="color:var(--danger)">*</span></label>
+            <input type="text" id="f-issuer" placeholder="örn. Udemy, BTK Akademi">
+        </div>
+        <div class="form-group">
+            <label for="f-category">Kategori</label>
+            <select id="f-category">
+                <option value="web">Web</option>
+                <option value="backend">Backend</option>
+                <option value="mobile">Mobile</option>
+                <option value="database">Veritabanı</option>
+                <option value="tools">Araçlar</option>
+                <option value="other">Diğer</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="f-date">Alınma Tarihi</label>
+            <input type="date" id="f-date">
+        </div>
+        <div class="form-group">
+            <label for="f-url">Sertifika Linki (isteğe bağlı)</label>
+            <input type="url" id="f-url" placeholder="https://...">
+        </div>
+        <div class="form-group">
+            <label for="f-desc">Açıklama (isteğe bağlı)</label>
+            <textarea id="f-desc" rows="3" placeholder="Sertifika hakkında kısa bilgi..."></textarea>
+        </div>
+
+        <div id="modal-error" style="display:none;color:var(--danger);font-size:0.85rem;margin-bottom:12px;"></div>
+
+        <div class="modal-actions">
+            <button class="btn-save" onclick="saveCertificate()">
+                <i class="fas fa-save"></i> Kaydet
+            </button>
+            <button class="btn-cancel" onclick="closeModal()">İptal</button>
+        </div>
+    </div>
+</div>
+
+<footer class="social-footer">
+    <ul class="wrapper">
+        <li class="icon twitter"><a href="https://twitter.com/OlcayKahraman40" target="_blank" rel="noopener"><span class="tooltip">X (Twitter)</span><i class="fa-brands fa-x-twitter"></i></a></li>
+        <li class="icon instagram"><a href="https://www.instagram.com/olcykhrmn" target="_blank" rel="noopener"><span class="tooltip">Instagram</span><i class="fab fa-instagram"></i></a></li>
+        <li class="icon github"><a href="https://github.com/OlcayKAHRAMAN2005" target="_blank" rel="noopener"><span class="tooltip">GitHub</span><i class="fab fa-github"></i></a></li>
+        <li class="icon linkedin"><a href="https://www.linkedin.com/in/olcay-kahraman2005" target="_blank" rel="noopener"><span class="tooltip">LinkedIn</span><i class="fab fa-linkedin"></i></a></li>
+    </ul>
+</footer>
+
+<div id="photo-overlay" class="photo-overlay">
+    <img src="" id="expanded-photo" alt="">
+</div>
+
+<button id="scrollToTopBtn" title="Yukarı Çık"><i class="fas fa-arrow-up"></i></button>
+
+<script src="script.js"></script>
+<script>
+/**
+ * certificates.html — PHP + MySQL API (api/certificates.php)
+ */
+
+const CERT_API = 'api/certificates.php';
+
+// Kategori → ikon ve renk sınıfı eşleştirmesi
+const CAT_META = {
+    web:      { icon: 'fa-globe',          cls: 'cat-web',      label: 'Web' },
+    backend:  { icon: 'fa-server',         cls: 'cat-backend',  label: 'Backend' },
+    mobile:   { icon: 'fa-mobile-screen-button', cls: 'cat-mobile', label: 'Mobile' },
+    database: { icon: 'fa-database',       cls: 'cat-database', label: 'Veritabanı' },
+    tools:    { icon: 'fa-tools',          cls: 'cat-tools',    label: 'Araçlar' },
+    other:    { icon: 'fa-certificate',    cls: 'cat-other',    label: 'Diğer' },
+};
+
+let allCerts     = [];
+let activeFilter = 'all';
+let activeSearch = '';
+let isUsingLocalStorage = false;
+
+// ---- YEREL DEPOLAMA YEDEKLEME FONKSİYONLARI ----
+function loadLocalStorageCerts() {
+    isUsingLocalStorage = true;
+    const localData = localStorage.getItem('ok_certs');
+    if (localData) {
+        allCerts = JSON.parse(localData);
+    } else {
+        allCerts = getFallback();
+        localStorage.setItem('ok_certs', JSON.stringify(allCerts));
+    }
+}
+
+// ---- VERİ ÇEKME ----
+async function loadCerts() {
+    const grid = document.getElementById('cert-grid');
+    grid.innerHTML = `<div class="empty-state"><i class="fas fa-spinner fa-spin"></i><p>Yükleniyor...</p></div>`;
+
+    try {
+        const data = await apiFetch(CERT_API + '?action=list');
+        if (data.success && data.certificates && data.certificates.length > 0) {
+            allCerts = data.certificates;
+            isUsingLocalStorage = false;
+        } else {
+            loadLocalStorageCerts();
+        }
+    } catch {
+        loadLocalStorageCerts();
+    }
+    render();
+}
+
+// PHP yoksa statik yedek
+function getFallback() {
+    return [
+        { id:1, title:'Web Geliştirme Temelleri', issuer:'BTK Akademi', category:'web', date_earned:'2024-03-15', credential_url:'https://btkakademi.gov.tr', description:'HTML, CSS ve JavaScript temellerini kapsayan eğitim.' },
+        { id:2, title:'C# ile OOP', issuer:'Udemy', category:'backend', date_earned:'2024-06-01', credential_url:'https://udemy.com', description:'OOP prensipleri ve Design Patterns.' },
+        { id:3, title:'ASP.NET Core MVC', issuer:'Udemy', category:'backend', date_earned:'2024-08-20', credential_url:'https://udemy.com', description:'ASP.NET Core ile tam kapsamlı web geliştirme.' },
+        { id:4, title:'Flutter & Dart', issuer:'Udemy', category:'mobile', date_earned:'2024-11-10', credential_url:'https://udemy.com', description:'Cross-platform mobil uygulama geliştirme.' },
+        { id:5, title:'SQL ve Veritabanı', issuer:'BTK Akademi', category:'database', date_earned:'2025-01-05', credential_url:'https://btkakademi.gov.tr', description:'SQL sorgulama ve veritabanı tasarımı.' },
+        { id:6, title:'Git ve GitHub', issuer:'BTK Akademi', category:'tools', date_earned:'2025-02-18', credential_url:'https://btkakademi.gov.tr', description:'Sürüm kontrolü ve GitHub işbirlikleri.' },
+    ];
+}
+
+// ---- FİLTRELEME ----
+function getFiltered() {
+    let list = [...allCerts];
+    if (activeFilter !== 'all') list = list.filter(c => c.category === activeFilter);
+    if (activeSearch) {
+        const q = activeSearch.toLowerCase();
+        list = list.filter(c =>
+            c.title.toLowerCase().includes(q) ||
+            c.issuer.toLowerCase().includes(q) ||
+            (c.description || '').toLowerCase().includes(q)
+        );
+    }
+    return list;
+}
+
+// ---- RENDER ----
+function render() {
+    const grid = document.getElementById('cert-grid');
+    const info = document.getElementById('results-info');
+    const list = getFiltered();
+
+    if (info) info.textContent = list.length > 0 ? `${list.length} sertifika gösteriliyor` : '';
+
+    if (list.length === 0) {
+        grid.innerHTML = `<div class="empty-state"><i class="fas fa-search"></i><p>Eşleşen sertifika bulunamadı.</p></div>`;
+        return;
+    }
+
+    grid.innerHTML = list.map((c, i) => {
+        const meta = CAT_META[c.category] || CAT_META.other;
+        const date = c.date_earned
+            ? new Date(c.date_earned).toLocaleDateString('tr-TR', { year:'numeric', month:'long' })
+            : '';
+        return `
+        <div class="cert-card" style="animation-delay:${i * 0.06}s">
+            <span class="cert-category-badge ${meta.cls}">${meta.label}</span>
+            <i class="fas ${meta.icon} cert-icon"></i>
+            <h3>${escHtml(c.title)}</h3>
+            <div class="cert-issuer"><i class="fas fa-building" style="margin-right:6px"></i>${escHtml(c.issuer)}</div>
+            <div class="cert-date"><i class="fas fa-calendar-alt"></i>${date}</div>
+            ${c.description ? `<p class="cert-description">${escHtml(c.description)}</p>` : ''}
+            <div class="cert-actions">
+                ${c.credential_url
+                    ? `<a class="cert-link-btn" href="${escHtml(c.credential_url)}" target="_blank" rel="noopener">
+                           <i class="fas fa-external-link-alt"></i> Görüntüle
+                       </a>`
+                    : `<span class="cert-link-btn" style="opacity:0.4;cursor:default;">
+                           <i class="fas fa-link"></i> Link Yok
+                       </span>`}
+                <button class="cert-del-btn" onclick="deleteCert(${c.id})" title="Sil">
+                    <i class="fas fa-trash"></i>
+                </button>
+            </div>
+        </div>`;
+    }).join('');
+}
+
+// ---- SİL ----
+async function deleteCert(id) {
+    if (!confirm('Bu sertifikayı silmek istediğinizden emin misiniz?')) return;
+    
+    if (isUsingLocalStorage) {
+        allCerts = allCerts.filter(c => Number(c.id) !== id);
+        localStorage.setItem('ok_certs', JSON.stringify(allCerts));
+        render();
+        window.showToast('🗑️ Sertifika silindi (Yerel).');
+        return;
+    }
+
+    try {
+        const data = await apiFetch(CERT_API + '?action=delete', {
+            method: 'POST',
+            body: JSON.stringify({ id })
+        });
+        if (data.success) {
+            allCerts = allCerts.filter(c => Number(c.id) !== id);
+            render();
+            window.showToast('🗑️ Sertifika silindi.');
+        } else {
+            window.showToast('❌ ' + data.message, 'error');
+        }
+    } catch {
+        allCerts = allCerts.filter(c => Number(c.id) !== id);
+        localStorage.setItem('ok_certs', JSON.stringify(allCerts));
+        render();
+        window.showToast('🗑️ Sertifika silindi (Yerel).');
+    }
+}
+
+// ---- MODAL ----
+function openModal() {
+    document.getElementById('f-date').value = new Date().toISOString().split('T')[0];
+    document.getElementById('modal-overlay').classList.add('active');
+    document.body.style.overflow = 'hidden';
+    document.getElementById('f-title').focus();
+}
+function closeModal() {
+    document.getElementById('modal-overlay').classList.remove('active');
+    document.body.style.overflow = '';
+    // formu temizle
+    ['f-title','f-issuer','f-url','f-desc'].forEach(id => document.getElementById(id).value = '');
+    document.getElementById('f-category').value = 'web';
+    document.getElementById('modal-error').style.display = 'none';
+}
+function handleOverlayClick(e) {
+    if (e.target === document.getElementById('modal-overlay')) closeModal();
+}
+
+// ---- KAYDET ----
+async function saveCertificate() {
+    const title       = document.getElementById('f-title').value.trim();
+    const issuer      = document.getElementById('f-issuer').value.trim();
+    const category    = document.getElementById('f-category').value;
+    const date_earned = document.getElementById('f-date').value;
+    const credential_url = document.getElementById('f-url').value.trim();
+    const description = document.getElementById('f-desc').value.trim();
+    const errEl = document.getElementById('modal-error');
+
+    if (!title || !issuer) {
+        errEl.textContent = 'Sertifika adı ve veren kurum zorunludur.';
+        errEl.style.display = 'block';
+        return;
+    }
+    errEl.style.display = 'none';
+
+    if (isUsingLocalStorage) {
+        const newId = allCerts.length > 0 ? Math.max(...allCerts.map(c => Number(c.id))) + 1 : 1;
+        const newCert = { id: newId, title, issuer, category, date_earned, credential_url, description };
+        allCerts.unshift(newCert);
+        localStorage.setItem('ok_certs', JSON.stringify(allCerts));
+        render();
+        closeModal();
+        window.showToast('✅ Sertifika eklendi (Yerel)!');
+        return;
+    }
+
+    try {
+        const data = await apiFetch(CERT_API + '?action=add', {
+            method: 'POST',
+            body: JSON.stringify({ title, issuer, category, date_earned, credential_url, description })
+        });
+        if (data.success) {
+            // Yeni kartı başa ekle
+            allCerts.unshift({ id: data.id, title, issuer, category, date_earned, credential_url, description });
+            render();
+            closeModal();
+            window.showToast('✅ Sertifika eklendi!');
+        } else {
+            errEl.textContent = data.message;
+            errEl.style.display = 'block';
+        }
+    } catch {
+        const newId = allCerts.length > 0 ? Math.max(...allCerts.map(c => Number(c.id))) + 1 : 1;
+        const newCert = { id: newId, title, issuer, category, date_earned, credential_url, description };
+        allCerts.unshift(newCert);
+        localStorage.setItem('ok_certs', JSON.stringify(allCerts));
+        render();
+        closeModal();
+        window.showToast('✅ Sertifika eklendi (Yerel)!');
+    }
+}
+
+// ---- ESCAPE ----
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+// ---- XSS KORUMA ----
+function escHtml(s) {
+    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+// ---- ARAMA & FİLTRE ----
+document.addEventListener('DOMContentLoaded', () => {
+    const searchInput    = document.getElementById('search-input');
+    const clearBtn       = document.getElementById('clear-search');
+    const chips          = document.querySelectorAll('#filter-chips .chip');
+
+    searchInput?.addEventListener('input', () => {
+        activeSearch = searchInput.value.trim();
+        clearBtn.style.display = activeSearch ? 'block' : 'none';
+        render();
+    });
+    clearBtn?.addEventListener('click', () => {
+        searchInput.value = ''; activeSearch = '';
+        clearBtn.style.display = 'none';
+        searchInput.focus(); render();
+    });
+
+    chips.forEach(chip => {
+        chip.addEventListener('click', () => {
+            chips.forEach(c => c.classList.remove('active'));
+            chip.classList.add('active');
+            activeFilter = chip.dataset.filter;
+            render();
+        });
+    });
+
+    loadCerts();
+});
+</script>
+
+</body>
+</html>

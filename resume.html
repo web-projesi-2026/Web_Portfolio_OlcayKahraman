@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="tr" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Özgeçmişim | Olcay KAHRAMAN</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="student-icon.png">
+    <style>
+        @media print {
+            header, .hamburger-menu, .theme-toggle, .photo-overlay, .resume-footer { display: none !important; }
+            body { background: white !important; color: black !important; }
+            .resume-wrapper { margin: 0 !important; padding: 10mm !important; width: 100% !important; }
+            .resume-section { page-break-inside: avoid; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-left">
+        <div class="profile-frame" id="profile-trigger">
+            <img src="olcaykahramanfotograf.jpg" alt="Olcay KAHRAMAN">
+        </div>
+        <h2 class="logo-text">Olcay KAHRAMAN</h2>
+    </div>
+    <div class="hamburger-menu" id="hamburger-btn"><i class="fas fa-bars"></i></div>
+    <nav id="nav-menu">
+        <ul>
+            <li><a href="index.html">Ana Sayfa</a></li>
+            <li><a href="projects.html">Projelerim</a></li>
+            <li><a href="about.html">Hakkımda</a></li>
+            <li><a href="resume.html" class="active">Özgeçmişim</a></li>
+            <li><a href="contact.html">İletişim</a></li>
+            <li><a href="certificates.html">Sertifikalarım</a></li>
+        </ul>
+    </nav>
+    <div class="theme-toggle">
+        <input type="checkbox" id="theme-checkbox" class="checkbox">
+        <label for="theme-checkbox" class="label">
+            <i class="fas fa-moon"></i><i class="fas fa-sun"></i>
+            <div class="ball"></div>
+        </label>
+    </div>
+</header>
+
+<main class="resume-wrapper">
+    <h1 class="page-title">Kariyer <span class="highlight">Yolculuğum</span></h1>
+
+    <div class="resume-grid">
+        <!-- EĞİTİM -->
+        <div class="resume-column">
+            <h2 class="section-subtitle">
+                <i class="fas fa-graduation-cap"></i> Eğitim
+            </h2>
+
+            <div class="resume-item">
+                <span class="date">2024 - Günümüz</span>
+                <h3>Kırşehir Ahi Evran Üniversitesi</h3>
+                <p>Bilgisayar Programcılığı</p>
+                <p class="description">Yazılım geliştirme, veritabanı yönetimi ve web teknolojileri üzerine akademik eğitim alıyorum.</p>
+            </div>
+
+            <div class="resume-item">
+                <span class="date">2020 - 2024</span>
+                <h3>Kırşehir Anadolu Lisesi</h3>
+                <p>Lise Eğitimi</p>
+                <p class="description">Temel matematik ve fen bilimleri eğitimini tamamladım.</p>
+            </div>
+        </div>
+
+        <!-- DENEYİM -->
+        <div class="resume-column">
+            <h2 class="section-subtitle">
+                <i class="fas fa-briefcase"></i> Deneyim & Etkinlikler
+            </h2>
+
+            <div class="resume-item">
+                <span class="date">2024 - Günümüz</span>
+                <h3>Full-Stack Geliştirici Adayı</h3>
+                <p>Freelance / Proje Bazlı</p>
+                <p class="description">ASP.NET Core, SQL Server ve modern Frontend teknolojileri ile kişisel projeler geliştiriyorum.</p>
+            </div>
+
+            <div class="resume-item">
+                <span class="date">2026</span>
+                <h3>Dia Yazılım Webinar</h3>
+                <p>Katılımcı</p>
+                <p class="description">Kurumsal yazılım süreçleri ve sektörel teknolojiler üzerine teknik konferans katılımı.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- TEKNİK BECERİLER -->
+    <div class="skills-section">
+        <h2 class="section-subtitle"><i class="fas fa-code"></i> Teknik Beceriler</h2>
+        <div class="skills-grid">
+            <div class="skill-item"><span class="skill-name">C# / ASP.NET Core</span><div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div></div>
+            <div class="skill-item"><span class="skill-name">HTML / CSS</span><div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div></div>
+            <div class="skill-item"><span class="skill-name">JavaScript</span><div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div></div>
+            <div class="skill-item"><span class="skill-name">SQL Server</span><div class="skill-bar"><div class="skill-fill" style="width:70%"></div></div></div>
+            <div class="skill-item"><span class="skill-name">Flutter / Dart</span><div class="skill-bar"><div class="skill-fill" style="width:65%"></div></div></div>
+            <div class="skill-item"><span class="skill-name">Git / GitHub</span><div class="skill-bar"><div class="skill-fill" style="width:72%"></div></div></div>
+        </div>
+    </div>
+
+    <div class="resume-footer">
+        <button class="cta-btn primary" onclick="window.print()">
+            <i class="fas fa-print"></i> PDF Olarak Yazdır
+        </button>
+    </div>
+</main>
+
+<footer class="social-footer">
+    <ul class="wrapper">
+        <li class="icon twitter"><a href="https://twitter.com/OlcayKahraman40" target="_blank" rel="noopener"><span class="tooltip">X (Twitter)</span><i class="fa-brands fa-x-twitter"></i></a></li>
+        <li class="icon instagram"><a href="https://www.instagram.com/olcykhrmn" target="_blank" rel="noopener"><span class="tooltip">Instagram</span><i class="fab fa-instagram"></i></a></li>
+        <li class="icon github"><a href="https://github.com/OlcayKAHRAMAN2005" target="_blank" rel="noopener"><span class="tooltip">GitHub</span><i class="fab fa-github"></i></a></li>
+        <li class="icon linkedin"><a href="https://www.linkedin.com/in/olcay-kahraman2005" target="_blank" rel="noopener"><span class="tooltip">LinkedIn</span><i class="fab fa-linkedin"></i></a></li>
+    </ul>
+</footer>
+
+<div id="photo-overlay" class="photo-overlay">
+    <img src="" id="expanded-photo" alt="Profil Fotoğrafı">
+</div>
+
+<button id="scrollToTopBtn" title="Yukarı Çık"><i class="fas fa-arrow-up"></i></button>
+
+<script src="script.js"></script>
+</body>
+</html>

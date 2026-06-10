@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="tr" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ana Sayfa | Olcay KAHRAMAN</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="student-icon.png">
+    <style>
+        .hero-eyebrow {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+        .section-label {
+            text-align: center;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--accent-color);
+            margin-bottom: 28px;
+            opacity: 0.8;
+        }
+        /* HAVA DURUMU WIDGET */
+        .weather-widget {
+            max-width: 420px;
+            margin: 0 auto 60px;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 18px;
+            padding: 22px 28px;
+            backdrop-filter: blur(8px);
+            text-align: center;
+        }
+        .weather-widget h3 {
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent-color);
+            margin-bottom: 14px;
+            font-weight: 700;
+        }
+        .weather-main {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 10px;
+        }
+        .weather-temp {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: var(--text-color);
+            line-height: 1;
+        }
+        .weather-icon { font-size: 2.4rem; }
+        .weather-desc {
+            font-size: 0.92rem;
+            color: var(--text-muted);
+            text-transform: capitalize;
+            margin-bottom: 12px;
+        }
+        .weather-details {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            font-size: 0.82rem;
+            color: var(--text-muted);
+        }
+        .weather-details span { display: flex; align-items: center; gap: 5px; }
+        .weather-city { font-weight: 700; font-size: 1rem; margin-bottom: 4px; }
+        #weather-loading { color: var(--text-muted); font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-left">
+        <div class="profile-frame" id="profile-trigger">
+            <img src="olcaykahramanfotograf.jpg" alt="Olcay KAHRAMAN">
+        </div>
+        <h2 class="logo-text">Olcay KAHRAMAN</h2>
+    </div>
+
+    <div class="hamburger-menu" id="hamburger-btn">
+        <i class="fas fa-bars"></i>
+    </div>
+
+    <nav id="nav-menu">
+        <ul>
+            <li><a href="index.html" class="active">Ana Sayfa</a></li>
+            <li><a href="projects.html">Projelerim</a></li>
+            <li><a href="about.html">Hakkımda</a></li>
+            <li><a href="resume.html">Özgeçmişim</a></li>
+            <li><a href="contact.html">İletişim</a></li>
+            <li><a href="certificates.html">Sertifikalarım</a></li>
+        </ul>
+    </nav>
+
+    <div class="theme-toggle">
+        <input type="checkbox" id="theme-checkbox" class="checkbox">
+        <label for="theme-checkbox" class="label">
+            <i class="fas fa-moon"></i>
+            <i class="fas fa-sun"></i>
+            <div class="ball"></div>
+        </label>
+    </div>
+</header>
+
+<main>
+    <section class="hero-center">
+        <div class="hero-content">
+            <p class="hero-eyebrow">👋 Merhaba, Ben</p>
+            <h1><span class="highlight">Olcay KAHRAMAN</span></h1>
+            <p class="subtitle">Full-Stack Geliştirici Adayı · Backend, Frontend & Mobile teknolojileriyle çözümler üretiyorum.</p>
+            <div class="cta-container">
+                <a href="projects.html" class="cta-btn primary"><i class="fas fa-folder-open"></i> Projelerimi Gör</a>
+                <a href="resume.html" class="cta-btn secondary"><i class="fas fa-file-alt"></i> Özgeçmişim</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- HAVA DURUMU — Open-Meteo API (ücretsiz, anahtar gerektirmez) -->
+    <section style="padding: 0 8% 20px;">
+        <div class="section-label">Anlık Hava Durumu</div>
+        <div class="weather-widget" id="weather-widget">
+            <h3><i class="fas fa-cloud-sun"></i> Kırşehir, TR</h3>
+            <p id="weather-loading"><i class="fas fa-spinner fa-spin"></i> Yükleniyor...</p>
+            <div id="weather-content" style="display:none">
+                <div class="weather-main">
+                    <div class="weather-icon" id="w-icon">☀️</div>
+                    <div class="weather-temp" id="w-temp">--°C</div>
+                </div>
+                <div class="weather-desc" id="w-desc"></div>
+                <div class="weather-details">
+                    <span><i class="fas fa-wind"></i> <span id="w-wind">--</span> km/h</span>
+                    <span><i class="fas fa-tint"></i> <span id="w-humid">--%</span></span>
+                    <span><i class="fas fa-thermometer-half"></i> Hissedilen: <span id="w-feel">--°C</span></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="specialty-section">
+        <div class="section-label">Uzmanlık Alanlarım</div>
+        <div class="container-grid">
+            <div class="vertical-card">
+                <div class="card-img"><img src="backend.png" alt="Backend Geliştirme"></div>
+                <div class="card-title"><i class="fas fa-server" style="margin-right:8px"></i>Backend</div>
+            </div>
+            <div class="vertical-card">
+                <div class="card-img"><img src="frontend.png" alt="Frontend Geliştirme"></div>
+                <div class="card-title"><i class="fas fa-laptop-code" style="margin-right:8px"></i>Frontend</div>
+            </div>
+            <div class="vertical-card">
+                <div class="card-img"><img src="mobile.png" alt="Mobil Geliştirme"></div>
+                <div class="card-title"><i class="fas fa-mobile-screen-button" style="margin-right:8px"></i>Mobile</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="info-grid-section">
+        <div class="container-grid-horizontal">
+            <a href="certificates.html" class="horizontal-card">
+                <i class="fas fa-certificate"></i>
+                <span>Sertifikalarım</span>
+            </a>
+            <a href="projects.html" class="horizontal-card">
+                <i class="fas fa-code-branch"></i>
+                <span>Proje Durumları</span>
+            </a>
+            <a href="about.html" class="horizontal-card">
+                <i class="fas fa-user-astronaut"></i>
+                <span>Hakkımda</span>
+            </a>
+        </div>
+    </section>
+</main>
+
+<footer class="social-footer">
+    <ul class="wrapper">
+        <li class="icon twitter">
+            <a href="https://twitter.com/OlcayKahraman40" target="_blank" rel="noopener">
+                <span class="tooltip">X (Twitter)</span>
+                <i class="fa-brands fa-x-twitter"></i>
+            </a>
+        </li>
+        <li class="icon instagram">
+            <a href="https://www.instagram.com/olcykhrmn" target="_blank" rel="noopener">
+                <span class="tooltip">Instagram</span>
+                <i class="fab fa-instagram"></i>
+            </a>
+        </li>
+        <li class="icon github">
+            <a href="https://github.com/OlcayKAHRAMAN2005" target="_blank" rel="noopener">
+                <span class="tooltip">GitHub</span>
+                <i class="fab fa-github"></i>
+            </a>
+        </li>
+        <li class="icon linkedin">
+            <a href="https://www.linkedin.com/in/olcay-kahraman2005" target="_blank" rel="noopener">
+                <span class="tooltip">LinkedIn</span>
+                <i class="fab fa-linkedin"></i>
+            </a>
+        </li>
+    </ul>
+</footer>
+
+<div id="photo-overlay" class="photo-overlay">
+    <img src="" id="expanded-photo" alt="Profil Fotoğrafı">
+</div>
+
+<button id="scrollToTopBtn" title="Yukarı Çık">
+    <i class="fas fa-arrow-up"></i>
+</button>
+
+<script src="script.js"></script>
+<script>
+// ---- Open-Meteo API (ücretsiz, anahtar gerektirmez) ----
+// Kırşehir koordinatları: 39.1425° N, 34.1709° E
+(async function loadWeather() {
+    const WMO_ICONS = {
+        0:'☀️',1:'🌤️',2:'⛅',3:'☁️',
+        45:'🌫️',48:'🌫️',
+        51:'🌦️',53:'🌦️',55:'🌧️',
+        61:'🌧️',63:'🌧️',65:'🌧️',
+        71:'❄️',73:'❄️',75:'❄️',
+        80:'🌦️',81:'🌧️',82:'⛈️',
+        95:'⛈️',96:'⛈️',99:'⛈️'
+    };
+    const WMO_DESC = {
+        0:'Açık',1:'Çoğunlukla açık',2:'Parçalı bulutlu',3:'Kapalı',
+        45:'Sisli',48:'Sisli',
+        51:'Hafif çisenti',53:'Çisenti',55:'Yoğun çisenti',
+        61:'Hafif yağmur',63:'Yağmur',65:'Şiddetli yağmur',
+        71:'Hafif kar',73:'Kar',75:'Yoğun kar',
+        80:'Sağanak',81:'Kuvvetli sağanak',82:'Şiddetli sağanak',
+        95:'Gök gürültülü fırtına',96:'Dolu ile fırtına',99:'Şiddetli fırtına'
+    };
+
+    try {
+        const url = 'https://api.open-meteo.com/v1/forecast?latitude=39.1425&longitude=34.1709' +
+                    '&current=temperature_2m,apparent_temperature,relative_humidity_2m,wind_speed_10m,weather_code' +
+                    '&wind_speed_unit=kmh&timezone=Europe%2FIstanbul';
+        const res  = await fetch(url);
+        const data = await res.json();
+        const c    = data.current;
+        const code = c.weather_code;
+
+        document.getElementById('w-temp').textContent  = Math.round(c.temperature_2m) + '°C';
+        document.getElementById('w-feel').textContent  = Math.round(c.apparent_temperature) + '°C';
+        document.getElementById('w-wind').textContent  = c.wind_speed_10m;
+        document.getElementById('w-humid').textContent = c.relative_humidity_2m + '%';
+        document.getElementById('w-icon').textContent  = WMO_ICONS[code] ?? '🌡️';
+        document.getElementById('w-desc').textContent  = WMO_DESC[code]  ?? 'Bilinmiyor';
+
+        document.getElementById('weather-loading').style.display = 'none';
+        document.getElementById('weather-content').style.display = 'block';
+    } catch {
+        document.getElementById('weather-loading').textContent = '⚠️ Hava durumu alınamadı.';
+    }
+})();
+</script>
+</body>
+</html>

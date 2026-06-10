@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="tr" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İletişim | Olcay KAHRAMAN</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="student-icon.png">
+</head>
+<body>
+
+<header>
+    <div class="header-left">
+        <div class="profile-frame" id="profile-trigger">
+            <img src="olcaykahramanfotograf.jpg" alt="Olcay KAHRAMAN">
+        </div>
+        <h2 class="logo-text">Olcay KAHRAMAN</h2>
+    </div>
+    <div class="hamburger-menu" id="hamburger-btn"><i class="fas fa-bars"></i></div>
+    <nav id="nav-menu">
+        <ul>
+            <li><a href="index.html">Ana Sayfa</a></li>
+            <li><a href="projects.html">Projelerim</a></li>
+            <li><a href="about.html">Hakkımda</a></li>
+            <li><a href="resume.html">Özgeçmişim</a></li>
+            <li><a href="contact.html">İletişim</a></li>
+            <li><a href="certificates.html">Sertifikalarım</a></li>
+        </ul>
+    </nav>
+    <div class="theme-toggle">
+        <input type="checkbox" id="theme-checkbox" class="checkbox">
+        <label for="theme-checkbox" class="label">
+            <i class="fas fa-moon"></i><i class="fas fa-sun"></i>
+            <div class="ball"></div>
+        </label>
+    </div>
+</header>
+
+<main class="contact-wrapper">
+    <h1 class="page-title">Bana <span class="highlight">Ulaşın</span></h1>
+
+    <div class="contact-grid">
+        <!-- Sol: İletişim Bilgileri -->
+        <div class="contact-info">
+            <h2>Bir Projen mi Var?</h2>
+            <p>Yeni fırsatlar ve iş birlikleri için her zaman mesajlarınıza açığım.</p>
+
+            <div class="info-links">
+                <div class="info-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>olcaykahraman2405@gmail.com</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>kahraman.olcay@ogr.ahievran.edu.tr</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-globe"></i>
+                    <a href="https://olcaykahraman.com" target="_blank" rel="noopener" class="contact-link">olcaykahraman.com</a>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-location-dot"></i>
+                    <span>Türkiye / Kırşehir</span>
+                </div>
+            </div>
+
+            <div class="social-links-minimal">
+                <a href="https://github.com/OlcayKAHRAMAN2005" target="_blank" rel="noopener" title="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/olcay-kahraman2005" target="_blank" rel="noopener" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://twitter.com/OlcayKahraman40" target="_blank" rel="noopener" title="Twitter/X"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="https://www.instagram.com/olcykhrmn" target="_blank" rel="noopener" title="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+
+        <!-- Sağ: Form + Mesaj Listesi -->
+        <div class="contact-form-wrapper">
+            <!-- MESAJ FORMU → api/contact.php?action=send -->
+            <form class="contact-form" id="contact-form" novalidate>
+                <div class="form-group">
+                    <label for="cf-name">Adınız Soyadınız <span style="color:var(--danger)">*</span></label>
+                    <input type="text" id="cf-name" placeholder="Adınız Soyadınız" required>
+                </div>
+                <div class="form-group">
+                    <label for="cf-email">E-posta Adresiniz <span style="color:var(--danger)">*</span></label>
+                    <input type="email" id="cf-email" placeholder="ornek@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="cf-subject">Konu</label>
+                    <input type="text" id="cf-subject" placeholder="Mesaj konusu (isteğe bağlı)">
+                </div>
+                <div class="form-group">
+                    <label for="cf-message">Mesajınız <span style="color:var(--danger)">*</span></label>
+                    <textarea id="cf-message" placeholder="Mesajınızı buraya yazın..." rows="5" required></textarea>
+                </div>
+                <button type="submit" class="cta-btn primary" style="width:100%;justify-content:center;">
+                    <i class="fas fa-paper-plane"></i> Gönder
+                </button>
+            </form>
+
+
+        </div>
+    </div>
+</main>
+
+<footer class="social-footer">
+    <ul class="wrapper">
+        <li class="icon twitter"><a href="https://twitter.com/OlcayKahraman40" target="_blank" rel="noopener"><span class="tooltip">X (Twitter)</span><i class="fa-brands fa-x-twitter"></i></a></li>
+        <li class="icon instagram"><a href="https://www.instagram.com/olcykhrmn" target="_blank" rel="noopener"><span class="tooltip">Instagram</span><i class="fab fa-instagram"></i></a></li>
+        <li class="icon github"><a href="https://github.com/OlcayKAHRAMAN2005" target="_blank" rel="noopener"><span class="tooltip">GitHub</span><i class="fab fa-github"></i></a></li>
+        <li class="icon linkedin"><a href="https://www.linkedin.com/in/olcay-kahraman2005" target="_blank" rel="noopener"><span class="tooltip">LinkedIn</span><i class="fab fa-linkedin"></i></a></li>
+    </ul>
+</footer>
+
+<div id="photo-overlay" class="photo-overlay">
+    <img src="" id="expanded-photo" alt="Profil Fotoğrafı">
+</div>
+
+<button id="scrollToTopBtn" title="Yukarı Çık"><i class="fas fa-arrow-up"></i></button>
+
+<script src="script.js"></script>
+</body>
+</html>

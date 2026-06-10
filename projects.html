@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="tr" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projelerim | Olcay KAHRAMAN</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="student-icon.png">
+</head>
+<body>
+
+<header>
+    <div class="header-left">
+        <div class="profile-frame" id="profile-trigger">
+            <img src="olcaykahramanfotograf.jpg" alt="Olcay KAHRAMAN">
+        </div>
+        <h2 class="logo-text">Olcay KAHRAMAN</h2>
+    </div>
+
+    <div class="hamburger-menu" id="hamburger-btn">
+        <i class="fas fa-bars"></i>
+    </div>
+
+    <nav id="nav-menu">
+        <ul>
+            <li><a href="index.html">Ana Sayfa</a></li>
+            <li><a href="projects.html" class="active">Projelerim</a></li>
+            <li><a href="about.html">Hakkımda</a></li>
+            <li><a href="resume.html">Özgeçmişim</a></li>
+            <li><a href="contact.html">İletişim</a></li>
+            <li><a href="certificates.html">Sertifikalarım</a></li>
+        </ul>
+    </nav>
+
+    <div class="theme-toggle">
+        <input type="checkbox" id="theme-checkbox" class="checkbox">
+        <label for="theme-checkbox" class="label">
+            <i class="fas fa-moon"></i>
+            <i class="fas fa-sun"></i>
+            <div class="ball"></div>
+        </label>
+    </div>
+</header>
+
+<main>
+    <section class="projects-container">
+        <h1 class="page-title">Benim <span class="highlight">Projelerim</span></h1>
+
+        <!-- ===== UX ÖZELLİĞİ 1 & 2: ARAMA + FİLTRELEME + SIRALAMA ===== -->
+        <div class="projects-toolbar">
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" id="search-input" placeholder="Proje ara...">
+                <button class="clear-search" id="clear-search" style="display:none" title="Temizle">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <div class="filter-sort-row">
+                <div class="filter-chips" id="filter-chips">
+                    <button class="chip active" data-filter="all">Tümü</button>
+                    <button class="chip" data-filter="frontend">Frontend</button>
+                    <button class="chip" data-filter="backend">Backend</button>
+                    <button class="chip" data-filter="mobile">Mobile</button>
+                </div>
+
+                <select id="sort-select" class="sort-select">
+                    <option value="default">Sıralama: Varsayılan</option>
+                    <option value="az">İsme Göre (A→Z)</option>
+                    <option value="za">İsme Göre (Z→A)</option>
+                    <option value="fav">Favoriler Önce</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Favori Banner -->
+        <div class="favorites-banner" id="fav-banner">
+            <i class="fas fa-star"></i>
+            <span>Favorilere eklediğin projeler tarayıcında saklanıyor</span>
+            <span class="favorites-count" id="fav-count">0 Favori</span>
+        </div>
+
+        <!-- Sonuç özeti -->
+        <div class="results-info" id="results-info"></div>
+
+        <!-- Proje Grid -->
+        <div class="projects-grid" id="dynamic-projects"></div>
+    </section>
+</main>
+
+<footer class="social-footer">
+    <ul class="wrapper">
+        <li class="icon twitter"><a href="https://twitter.com/OlcayKahraman40" target="_blank" rel="noopener"><span class="tooltip">X (Twitter)</span><i class="fa-brands fa-x-twitter"></i></a></li>
+        <li class="icon instagram"><a href="https://www.instagram.com/olcykhrmn" target="_blank" rel="noopener"><span class="tooltip">Instagram</span><i class="fab fa-instagram"></i></a></li>
+        <li class="icon github"><a href="https://github.com/OlcayKAHRAMAN2005" target="_blank" rel="noopener"><span class="tooltip">GitHub</span><i class="fab fa-github"></i></a></li>
+        <li class="icon linkedin"><a href="https://www.linkedin.com/in/olcay-kahraman2005" target="_blank" rel="noopener"><span class="tooltip">LinkedIn</span><i class="fab fa-linkedin"></i></a></li>
+    </ul>
+</footer>
+
+<div id="photo-overlay" class="photo-overlay">
+    <img src="" id="expanded-photo" alt="Profil Fotoğrafı">
+</div>
+
+<button id="scrollToTopBtn" title="Yukarı Çık"><i class="fas fa-arrow-up"></i></button>
+
+<script src="script.js"></script>
+
+</body>
+</html>
