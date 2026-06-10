@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "baslik": "StreamAtlas",
+    "badge": "Web App",
+    "resim": "streamatlas.png",
+    "kategori": "frontend",
+    "aciklama": "Film ve dizi keşfetmeye yarayan modern bir streaming platformu arayüzü. TMDB API entegrasyonu ile dinamik içerik listeleme.",
+    "tags": ["HTML/CSS", "JavaScript", "API"],
+    "github": "https://github.com/OlcayKAHRAMAN2005"
+  },
+  {
+    "id": 2,
+    "baslik": "GSWEB",
+    "badge": "ASP.NET",
+    "resim": "GSWEB_afiş.png",
+    "kategori": "backend",
+    "aciklama": "Galatasaray taraftar platformu. ASP.NET Core MVC ile geliştirilmiş, SQL Server veritabanı destekli resmi içerik yönetim sistemi.",
+    "tags": ["C#", "ASP.NET", "SQL Server"],
+    "github": "https://github.com/OlcayKAHRAMAN2005"
+  },
+  {
+    "id": 3,
+    "baslik": "Portfolio Site",
+    "badge": "Frontend",
+    "resim": "frontend.png",
+    "kategori": "frontend",
+    "aciklama": "Kişisel portfolyo web sitesi. Modern CSS, tema değiştirme ve dinamik içerik yönetimi özellikleri barındırıyor.",
+    "tags": ["HTML", "CSS", "JavaScript"],
+    "github": "https://github.com/OlcayKAHRAMAN2005"
+  },
+  {
+    "id": 4,
+    "baslik": "Mobile App",
+    "badge": "Flutter",
+    "resim": "mobile.png",
+    "kategori": "mobile",
+    "aciklama": "Flutter ile geliştirilen cross-platform mobil uygulama. Android ve iOS için tek kod tabanı.",
+    "tags": ["Flutter", "Dart", "Mobile"],
+    "github": "https://github.com/OlcayKAHRAMAN2005"
+  }
+]
